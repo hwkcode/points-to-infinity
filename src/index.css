@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  background: black;
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.game {
+  padding: 20px;
+}
+
+h1 {
+  font-size: 42px;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 14px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* CARD CONTAINER */
+.card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+/* INNER FLIP WRAPPER */
+.card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+/* Flip trigger */
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* FRONT + BACK FACES */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-front img,
+.card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Front face rotated */
+.card-front {
+  transform: rotateY(180deg);
+}
+
+/* Button styling */
+button {
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin: 4px;
+}
+
+button:hover {
+  opacity: 0.85;
+}
